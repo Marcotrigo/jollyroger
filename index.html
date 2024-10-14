@@ -10,20 +10,30 @@
             font-family: 'Ubuntu', sans-serif;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
-            background-color: #001f3f; /* Fondo azul marino */
+            background-color: #000; /* Fondo negro */
             color: #ffffff; /* Texto blanco */
+            overflow-x: hidden;
         }
 
-        /* Estilos para el título fijo */
+        /* Estilos para el título y subtítulo */
         .title {
             position: fixed;
-            top: 20px; /* Espacio superior para el título */
+            top: 10px; /* Espacio pequeño para el título */
             left: 50%;
             transform: translateX(-50%);
-            color: #7FDBFF; /* Celeste suave */
-            font-size: 4rem; /* Tamaño del título */
+            color: #39CCCC; /* Azul esmeralda */
+            font-size: 3rem; /* Tamaño del título */
             z-index: 10; /* Asegura que el título esté por encima de las imágenes */
+        }
+
+        .subtitle {
+            position: fixed;
+            top: 70px; /* Espacio para el subtítulo */
+            left: 50%;
+            transform: translateX(-50%);
+            color: #FFFFFF; /* Texto blanco para el subtítulo */
+            font-size: 1.5rem; /* Tamaño del subtítulo */
+            z-index: 10; /* Asegura que el subtítulo esté por encima de las imágenes */
         }
 
         /* Estilos para las imágenes */
@@ -52,7 +62,7 @@
 
         /* Estilos para el contenido principal */
         .content {
-            margin-top: 100px; /* Espacio para el título */
+            margin-top: 120px; /* Espacio para el título y subtítulo */
             text-align: center;
         }
 
@@ -63,27 +73,30 @@
             left: 50%;
             transform: translateX(-50%);
             width: 100%;
-            background-color: #001f3f; /* Fondo azul marino */
+            background-color: #000; /* Fondo negro */
             padding: 10px 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             z-index: 1000;
+            border-top: 1px solid #444; /* Línea de separación superior */
         }
 
         .fixed-buttons button {
             padding: 10px 15px;
             font-size: 1rem;
-            background-color: #0074D9; /* Botones azul celeste */
+            background-color: #444; /* Color gris */
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin: 10px;
+            margin: 5px; /* Espacio entre botones */
             transition: background-color 0.3s;
+            width: 80%; /* Ancho del botón */
         }
 
         .fixed-buttons button:hover {
-            background-color: #39CCCC; /* Efecto hover con azul turquesa */
+            background-color: #39CCCC; /* Cambio a azul esmeralda al pasar el mouse */
         }
 
         /* Estilo para el botón de WhatsApp */
@@ -116,16 +129,55 @@
         .social-button:hover {
             background-color: #39CCCC; /* Color al pasar el mouse */
         }
+
+        /* Sección de contacto */
+        .contact-section {
+            margin-top: 50px; /* Espacio superior */
+            text-align: center;
+            padding: 20px;
+        }
+
+        .contact-section h2 {
+            color: #39CCCC; /* Azul esmeralda */
+        }
+
+        .contact-section p {
+            color: #ffffff; /* Texto blanco */
+            margin: 10px 0;
+        }
+
+        .contact-section input[type="email"] {
+            padding: 10px;
+            margin-top: 10px;
+            width: 80%;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .contact-section button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            background-color: #444; /* Color gris */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 80%;
+        }
+
+        .contact-section button:hover {
+            background-color: #39CCCC; /* Cambio a azul esmeralda al pasar el mouse */
+        }
     </style>
 </head>
 <body>
 
-    <!-- Título fijo sobre imágenes -->
+    <!-- Título y subtítulo fijos sobre imágenes -->
     <div class="title">Jollyroger</div>
+    <div class="subtitle">Teatro y música en vivo</div>
     
     <div class="content">
-        <h2 style="color: #39CCCC; margin-top: 70px;">Teatro y música en vivo</h2>
-
         <!-- Sección de imágenes -->
         <div class="image-container">
             <img src="https://via.placeholder.com/800x400?text=Imagen+1" alt="Imagen 1 de Instagram">
@@ -148,6 +200,16 @@
         <button class="whatsapp-button" onclick="openWhatsApp()">Chat</button>
         <button class="social-button" onclick="openInstagram()">Instagram</button>
         <button class="social-button" onclick="openYouTube()">YouTube</button>
+        <button onclick="scrollToContact()">Contacto</button>
+        <button onclick="download()">Descargas</button>
+    </div>
+
+    <!-- Sección de contacto -->
+    <div class="contact-section" id="contact">
+        <h2>Contacto</h2>
+        <p>Envíanos un mensaje a <strong>jollyrogerobra@gmail.com</strong></p>
+        <input type="email" placeholder="Tu correo electrónico" />
+        <button onclick="sendEmail()">Enviar</button>
     </div>
 
     <!-- JavaScript para abrir WhatsApp, Instagram y YouTube -->
@@ -163,6 +225,20 @@
 
         function openYouTube() {
             window.open('https://www.youtube.com/', '_blank'); // Cambia la URL al canal de YouTube
+        }
+
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function download() {
+            alert('Descargas disponibles pronto.');
+        }
+
+        function sendEmail() {
+            const email = document.querySelector('.contact-section input[type="email"]').value;
+            alert('Gracias por tu mensaje. Te contactaremos pronto.');
+            // Aquí podrías agregar funcionalidad para enviar el correo
         }
     </script>
 
