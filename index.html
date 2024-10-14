@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Página oficial de la compañía JollyRoger con venta de entradas y donaciones">
+    <meta name="description" content="Página oficial de la compañía JollyRoger con venta de entradas, donaciones y carrusel de imágenes de Instagram.">
     <title>JollyRoger - Teatro y Donaciones</title>
     <style>
         /* Estilos básicos para el layout de la página */
@@ -78,6 +78,41 @@
             text-align: center;
             padding: 20px 0;
         }
+
+        /* Estilos para el carrusel */
+        .carousel-container {
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+            margin-top: 50px;
+        }
+        .carousel-slide {
+            display: none;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .active {
+            display: block;
+        }
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .prev, .next {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
     </style>
 </head>
 <body>
@@ -86,6 +121,19 @@
     <header>
         <h1>JollyRoger - Teatro y Donaciones</h1>
     </header>
+
+    <!-- Carrusel de imágenes -->
+    <div class="carousel-container">
+        <img src="https://via.placeholder.com/1000x300?text=Imagen+1" class="carousel-slide active" alt="Imagen 1 de Instagram">
+        <img src="https://via.placeholder.com/1000x300?text=Imagen+2" class="carousel-slide" alt="Imagen 2 de Instagram">
+        <img src="https://via.placeholder.com/1000x300?text=Imagen+3" class="carousel-slide" alt="Imagen 3 de Instagram">
+
+        <!-- Controles del carrusel -->
+        <div class="carousel-controls">
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+        </div>
+    </div>
 
     <!-- Menú de navegación lateral fijo -->
     <nav>
@@ -125,6 +173,35 @@
         <p>&copy; 2024 JollyRoger. Todos los derechos reservados. | <a href="https://www.instagram.com/jollyrogerobra/" target="_blank" style="color: #ccc;">Síguenos en Instagram</a></p>
     </footer>
 
+    <!-- Scripts para el funcionamiento del carrusel -->
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        function nextSlide() {
+            slideIndex = (slideIndex + 1) % slides.length;
+            showSlide(slideIndex);
+        }
+
+        function prevSlide() {
+            slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+            showSlide(slideIndex);
+        }
+
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+
+        // Desplazamiento automático cada 5 segundos
+        setInterval(nextSlide, 5000);
+    </script>
+
 </body>
 </html>
-
