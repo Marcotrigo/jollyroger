@@ -3,128 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Página oficial de la compañía JollyRoger con venta de entradas y donaciones">
-    <title>JollyRoger - Teatro y Donaciones</title>
+    <title>Página Web Inspirada en el Mar</title>
     <style>
-        /* Estilos básicos para el layout de la página */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            overflow-x: hidden;
+            background-color: #e0f7fa; /* Color celeste suave de fondo */
+            color: #004d40; /* Color verde esmeralda oscuro */
         }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 15px 20px;
-            text-align: center;
+
+        /* Estilos para el carrusel */
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            height: 500px;
+            overflow: hidden;
+            background-color: #00796b; /* Azul oscuro profundo */
         }
-        nav {
-            position: fixed;
-            top: 0;
-            right: 0;
-            background-color: #333;
-            color: white;
-            width: 200px;
+
+        .carousel-slide {
+            width: 100%;
             height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .carousel-slide.active {
+            display: block;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            left: 0; /* Botones a la izquierda */
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: space-between;
+            transform: translateY(-50%);
         }
-        nav a {
+
+        .carousel-controls button {
+            background-color: rgba(0, 77, 64, 0.7); /* Fondo verde esmeralda oscuro transparente */
+            border: none;
             color: white;
-            padding: 15px;
-            text-decoration: none;
-            display: block;
-            margin: 10px 0;
+            font-size: 2rem;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .carousel-controls button:hover {
+            background-color: rgba(0, 77, 64, 1); /* Efecto hover con verde esmeralda oscuro más fuerte */
+        }
+
+        /* Estilos para el resto de la página */
+        .content {
+            padding: 20px;
             text-align: center;
         }
-        nav a:hover {
-            background-color: #555;
+
+        .content h1 {
+            margin-bottom: 20px;
+            color: #006064; /* Azul oscuro oceánico */
         }
-        section {
-            padding: 60px 20px;
-            margin-top: 20px;
-        }
-        h2 {
-            color: #333;
-        }
-        #tickets, #donate {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 20px 0;
-            padding: 30px;
-            text-align: center;
-        }
-        button {
-            background-color: #28a745;
+
+        .donation-button, .buy-tickets-button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background-color: #004d40; /* Verde esmeralda */
             color: white;
             border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
             border-radius: 5px;
-            margin-top: 10px;
+            cursor: pointer;
+            margin: 10px;
         }
-        button:hover {
-            background-color: #218838;
+
+        .donation-button:hover, .buy-tickets-button:hover {
+            background-color: #00796b; /* Efecto hover con azul oceánico */
         }
-        footer {
-            background-color: #333;
+
+        /* Controles laterales */
+        .sidebar {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #004d40;
+            padding: 10px;
+            border-radius: 10px 0 0 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar a {
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
             color: white;
-            text-align: center;
-            padding: 20px 0;
+            font-weight: bold;
+        }
+
+        .sidebar a:hover {
+            color: #b2ebf2; /* Celeste claro para hover */
         }
     </style>
 </head>
 <body>
 
-    <!-- Encabezado -->
-    <header>
-        <h1>JollyRoger - Teatro y Donaciones</h1>
-    </header>
+    <!-- Carrusel de imágenes de Instagram -->
+    <div class="carousel-container">
+        <img src="https://via.placeholder.com/1600x500?text=Imagen+1" class="carousel-slide active" alt="Imagen 1 de Instagram">
+        <img src="https://via.placeholder.com/1600x500?text=Imagen+2" class="carousel-slide" alt="Imagen 2 de Instagram">
+        <img src="https://via.placeholder.com/1600x500?text=Imagen+3" class="carousel-slide" alt="Imagen 3 de Instagram">
 
-    <!-- Menú de navegación lateral fijo -->
-    <nav>
-        <a href="#tickets">Compra Entradas</a>
-        <a href="#donate">Donaciones</a>
-        <a href="https://www.instagram.com/jollyrogerobra/" target="_blank">Instagram</a>
-    </nav>
+        <div class="carousel-controls">
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+        </div>
+    </div>
 
-    <!-- Sección de compra de entradas -->
-    <section id="tickets">
-        <h2>Compra tus Entradas</h2>
-        <p>Adquiere entradas para nuestro próximo evento y apoya nuestro arte en vivo.</p>
-        <!-- Botón de Flow para compra de entradas -->
-        <form action="https://www.flow.cl/payment" method="post">
-            <input type="hidden" name="commerce_order" value="evento_jollyroger_001">
-            <input type="hidden" name="amount" value="10000">
-            <input type="hidden" name="email" value="cliente@example.com">
-            <button type="submit">Comprar Entradas</button>
-        </form>
-    </section>
+    <!-- Contenido principal -->
+    <div class="content">
+        <h1>Bienvenidos a la página oficial de JollyRoger</h1>
+        <p>Conéctate con nosotros a través de nuestras redes sociales y apoya nuestras actividades.</p>
 
-    <!-- Sección de donaciones -->
-    <section id="donate">
-        <h2>Haz una Donación</h2>
-        <p>Apóyanos con una donación para seguir creando y compartiendo arte.</p>
-        <!-- Botón de Flow para donaciones -->
-        <form action="https://www.flow.cl/payment" method="post">
-            <input type="hidden" name="commerce_order" value="donacion_jollyroger_001">
-            <input type="hidden" name="amount" value="5000">
-            <input type="hidden" name="email" value="donante@example.com">
-            <button type="submit">Donar</button>
-        </form>
-    </section>
+        <button class="donation-button">Donar</button>
+        <button class="buy-tickets-button">Comprar Entradas</button>
+    </div>
 
-    <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2024 JollyRoger. Todos los derechos reservados. | <a href="https://www.instagram.com/jollyrogerobra/" target="_blank" style="color: #ccc;">Síguenos en Instagram</a></p>
-    </footer>
+    <!-- Sidebar con enlaces -->
+    <div class="sidebar">
+        <a href="https://www.instagram.com/jollyrogerobra" target="_blank">Instagram</a>
+        <a href="#comprar-entradas">Comprar Entradas</a>
+        <a href="#donaciones">Donaciones</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+
+    <!-- JavaScript para el carrusel -->
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        function nextSlide() {
+            slideIndex = (slideIndex + 1) % slides.length;
+            showSlide(slideIndex);
+        }
+
+        function prevSlide() {
+            slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+            showSlide(slideIndex);
+        }
+
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+
+        // Desplazamiento automático cada 5 segundos
+        setInterval(nextSlide, 5000);
+    </script>
 
 </body>
 </html>
-
