@@ -15,31 +15,22 @@
             color: #ffffff; /* Texto blanco */
         }
 
-        /* Estilos para el contenido principal */
-        .content {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .content h1 {
-            margin-bottom: 10px;
-            font-family: 'Dealerplate', sans-serif;
+        /* Estilos para el título fijo */
+        .title {
+            position: fixed;
+            top: 20px; /* Espacio superior para el título */
+            left: 50%;
+            transform: translateX(-50%);
             color: #7FDBFF; /* Celeste suave */
-            font-size: 3rem;
-        }
-
-        .content h2 {
-            margin-bottom: 30px;
-            color: #39CCCC; /* Turquesa */
-            font-size: 1.5rem;
+            font-size: 4rem; /* Tamaño del título */
+            z-index: 10; /* Asegura que el título esté por encima de las imágenes */
         }
 
         /* Estilos para las imágenes */
         .image-container {
             position: relative;
-            margin: 20px auto;
-            max-width: 100%;
-            overflow: hidden; /* Para evitar bordes */
+            margin: 0; /* Sin margen */
+            overflow: hidden; /* Sin bordes */
         }
 
         .image-container img {
@@ -57,6 +48,12 @@
             background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
             padding: 10px;
             border-radius: 5px;
+        }
+
+        /* Estilos para el contenido principal */
+        .content {
+            margin-top: 100px; /* Espacio para el título */
+            text-align: center;
         }
 
         /* Botones fijos en la parte inferior */
@@ -123,22 +120,21 @@
 </head>
 <body>
 
-    <!-- Contenido principal -->
+    <!-- Título fijo sobre imágenes -->
+    <div class="title">Jollyroger</div>
+    
     <div class="content">
-        <h1>Jollyroger</h1>
-        <h2>Teatro y música en vivo</h2>
+        <h2 style="color: #39CCCC; margin-top: 70px;">Teatro y música en vivo</h2>
 
         <!-- Sección de imágenes -->
         <div class="image-container">
             <img src="https://via.placeholder.com/800x400?text=Imagen+1" alt="Imagen 1 de Instagram">
             <div class="image-description">Jollyroger obra: descripción de la imagen 1.</div>
         </div>
-
         <div class="image-container">
             <img src="https://via.placeholder.com/800x400?text=Imagen+2" alt="Imagen 2 de Instagram">
             <div class="image-description">Jollyroger obra: descripción de la imagen 2.</div>
         </div>
-
         <div class="image-container">
             <img src="https://via.placeholder.com/800x400?text=Imagen+3" alt="Imagen 3 de Instagram">
             <div class="image-description">Jollyroger obra: descripción de la imagen 3.</div>
