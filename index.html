@@ -36,14 +36,14 @@
             z-index: 10; /* Asegura que el subtítulo esté por encima de las imágenes */
         }
 
-        /* Estilos para las imágenes */
-        .image-container {
-            position: relative;
+        /* Estilos para las imágenes y videos */
+        .image-container, .video-container {
             margin: 0; /* Sin margen */
             overflow: hidden; /* Sin bordes */
+            position: relative;
         }
 
-        .image-container img {
+        .image-container img, .video-container iframe {
             width: 100%;
             height: auto;
             object-fit: cover; /* Mantiene el aspecto de la imagen y la recorta */
@@ -76,10 +76,9 @@
             background-color: #000; /* Fondo negro */
             padding: 10px 0;
             display: flex;
-            flex-direction: column;
+            justify-content: center; /* Centrar botones */
             align-items: center;
             z-index: 1000;
-            border-top: 1px solid #444; /* Línea de separación superior */
         }
 
         .fixed-buttons button {
@@ -90,84 +89,33 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin: 5px; /* Espacio entre botones */
+            margin: 0 5px; /* Espacio entre botones */
             transition: background-color 0.3s;
-            width: 80%; /* Ancho del botón */
+            width: auto; /* Ancho automático del botón */
         }
 
         .fixed-buttons button:hover {
             background-color: #39CCCC; /* Cambio a azul esmeralda al pasar el mouse */
         }
 
-        /* Estilo para el botón de WhatsApp */
-        .whatsapp-button {
-            background-color: #25D366; /* Color típico de WhatsApp */
-            border: none;
-            color: white;
-            padding: 15px 30px;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
+        .separator {
+            width: 1px; /* Separador gris */
+            background-color: #666;
+            height: 30px; /* Altura del separador */
+            margin: 0 10px; /* Espacio entre botones y separador */
         }
 
-        .whatsapp-button:hover {
-            background-color: #128C7E;
-        }
-
-        /* Estilo para botones de Instagram y YouTube */
-        .social-button {
-            background-color: #0074D9; /* Color de los botones de redes */
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px;
-        }
-
-        .social-button:hover {
-            background-color: #39CCCC; /* Color al pasar el mouse */
-        }
-
-        /* Sección de contacto */
-        .contact-section {
-            margin-top: 50px; /* Espacio superior */
+        /* Estilo para la sección de derechos reservados */
+        .footer {
             text-align: center;
-            padding: 20px;
+            margin-top: 20px;
+            font-size: 0.8rem; /* Tamaño del texto */
+            color: #ffffff;
         }
 
-        .contact-section h2 {
-            color: #39CCCC; /* Azul esmeralda */
-        }
-
-        .contact-section p {
-            color: #ffffff; /* Texto blanco */
-            margin: 10px 0;
-        }
-
-        .contact-section input[type="email"] {
-            padding: 10px;
-            margin-top: 10px;
-            width: 80%;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .contact-section button {
-            padding: 10px 15px;
-            margin-top: 10px;
-            background-color: #444; /* Color gris */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            width: 80%;
-        }
-
-        .contact-section button:hover {
-            background-color: #39CCCC; /* Cambio a azul esmeralda al pasar el mouse */
+        /* Estilo para la sección de videos */
+        .video-container {
+            margin: 20px 0;
         }
     </style>
 </head>
@@ -180,36 +128,73 @@
     <div class="content">
         <!-- Sección de imágenes -->
         <div class="image-container">
-            <img src="https://via.placeholder.com/800x400?text=Imagen+1" alt="Imagen 1 de Instagram">
-            <div class="image-description">Jollyroger obra: descripción de la imagen 1.</div>
+            <img src="https://via.placeholder.com/800x400?text=Imagen+1" alt="Imagen 1">
+            <div class="image-description">Descripción de la imagen 1.</div>
         </div>
         <div class="image-container">
-            <img src="https://via.placeholder.com/800x400?text=Imagen+2" alt="Imagen 2 de Instagram">
-            <div class="image-description">Jollyroger obra: descripción de la imagen 2.</div>
+            <img src="https://via.placeholder.com/800x400?text=Imagen+2" alt="Imagen 2">
+            <div class="image-description">Descripción de la imagen 2.</div>
         </div>
         <div class="image-container">
-            <img src="https://via.placeholder.com/800x400?text=Imagen+3" alt="Imagen 3 de Instagram">
-            <div class="image-description">Jollyroger obra: descripción de la imagen 3.</div>
+            <img src="https://via.placeholder.com/800x400?text=Imagen+3" alt="Imagen 3">
+            <div class="image-description">Descripción de la imagen 3.</div>
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/800x400?text=Imagen+4" alt="Imagen 4">
+            <div class="image-description">Descripción de la imagen 4.</div>
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/800x400?text=Imagen+5" alt="Imagen 5">
+            <div class="image-description">Descripción de la imagen 5.</div>
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/800x400?text=Imagen+6" alt="Imagen 6">
+            <div class="image-description">Descripción de la imagen 6.</div>
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/800x400?text=Imagen+7" alt="Imagen 7">
+            <div class="image-description">Descripción de la imagen 7.</div>
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/800x400?text=Imagen+8" alt="Imagen 8">
+            <div class="image-description">Descripción de la imagen 8.</div>
+        </div>
+
+        <!-- Sección de videos -->
+        <div class="video-container">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/aXuw6TrdSWM" title="Video 1" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-container">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/hh1C-HQAxfM" title="Video 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-container">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/KujmfG3XqVc" title="Video 3" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-container">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/prWlZm50oXw" title="Video 4" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 
     <!-- Botones fijos para Donaciones, Comprar Entradas, Chat, Instagram y YouTube -->
     <div class="fixed-buttons">
         <button class="donation-button">Donar</button>
+        <div class="separator"></div>
         <button class="buy-tickets-button">Comprar Entradas</button>
+        <div class="separator"></div>
         <button class="whatsapp-button" onclick="openWhatsApp()">Chat</button>
+        <div class="separator"></div>
         <button class="social-button" onclick="openInstagram()">Instagram</button>
+        <div class="separator"></div>
         <button class="social-button" onclick="openYouTube()">YouTube</button>
+        <div class="separator"></div>
         <button onclick="scrollToContact()">Contacto</button>
+        <div class="separator"></div>
         <button onclick="download()">Descargas</button>
     </div>
 
-    <!-- Sección de contacto -->
-    <div class="contact-section" id="contact">
-        <h2>Contacto</h2>
-        <p>Envíanos un mensaje a <strong>jollyrogerobra@gmail.com</strong></p>
-        <input type="email" placeholder="Tu correo electrónico" />
-        <button onclick="sendEmail()">Enviar</button>
+    <!-- Sección de derechos reservados -->
+    <div class="footer">
+        <p>Todos los derechos reservados a Jollyroger</p>
     </div>
 
     <!-- JavaScript para abrir WhatsApp, Instagram y YouTube -->
@@ -224,23 +209,16 @@
         }
 
         function openYouTube() {
-            window.open('https://www.youtube.com/', '_blank'); // Cambia la URL al canal de YouTube
+            window.open('https://www.youtube.com/@jollyroger541/videos', '_blank');
         }
 
         function scrollToContact() {
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            // Aquí puedes agregar la lógica para hacer scroll a la sección de contacto
         }
 
         function download() {
-            alert('Descargas disponibles pronto.');
-        }
-
-        function sendEmail() {
-            const email = document.querySelector('.contact-section input[type="email"]').value;
-            alert('Gracias por tu mensaje. Te contactaremos pronto.');
-            // Aquí podrías agregar funcionalidad para enviar el correo
+            // Aquí puedes agregar la lógica para la descarga de archivos
         }
     </script>
-
 </body>
 </html>
