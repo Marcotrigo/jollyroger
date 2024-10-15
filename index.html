@@ -1,292 +1,245 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jollyroger</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dealerplate&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Ubuntu', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000; /* Fondo negro */
-            color: #ffffff; /* Texto blanco */
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jollyroger - Teatro y Música en Vivo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dealerplate&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Estilos para el título, subtítulo y franja negra */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #000; /* Franja negra debajo del título */
-            z-index: 10;
-        }
+    body {
+      font-family: 'Ubuntu', sans-serif;
+      background-color: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
 
-        .title {
-            font-family: 'Dealerplate', sans-serif;
-            color: #39CCCC; /* Azul esmeralda */
-            font-size: 2.5rem;
-            display: inline-block;
-            margin: 10px;
-        }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #000;
+      padding: 10px;
+      z-index: 100;
+    }
 
-        .date {
-            font-size: 1rem;
-            margin-left: 15px;
-            color: #FFFFFF; /* Blanco para la fecha */
-        }
+    h1 {
+      font-family: 'Dealerplate', sans-serif;
+      font-size: 2.5rem;
+      color: #fff;
+      display: inline-block;
+    }
 
-        .subtitle {
-            display: inline-block;
-            font-size: 1.5rem;
-            color: #FFFFFF; /* Texto blanco para el subtítulo */
-            margin-left: 20px;
-            vertical-align: middle;
-        }
+    h2 {
+      font-size: 1.2rem;
+      color: #999;
+      display: inline-block;
+      margin-left: 20px;
+    }
 
-        /* Estilos para las imágenes y videos */
-        .image-container, .video-container {
-            margin: 0;
-            overflow: hidden;
-            position: relative;
-        }
+    #buttons {
+      position: fixed;
+      left: 0;
+      top: 50px;
+      width: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 100;
+    }
 
-        .image-container img, .video-container iframe {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
+    #buttons a {
+      text-align: center;
+      padding: 10px;
+      color: #fff;
+      background-color: #000;
+      text-decoration: none;
+      margin: 5px 0;
+      border: 1px solid #444;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
 
-        .image-description {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: #ffffff;
-            font-size: 1.5rem;
-            background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-            padding: 10px;
-            border-radius: 5px;
-        }
+    #buttons a:hover {
+      background-color: #0a9c79;
+    }
 
-        /* Estilos para el contenido principal */
-        .content {
-            margin-top: 100px; /* Espacio para el título, subtítulo y franja negra */
-            text-align: center;
-        }
+    #buttons .dropdown {
+      position: relative;
+    }
 
-        /* Botones fijos en la parte inferior */
-        .fixed-buttons {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            background-color: #000; /* Fondo negro */
-            padding: 10px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
+    #buttons .dropdown-content {
+      display: none;
+      position: absolute;
+      left: 100%;
+      top: 0;
+      background-color: #000;
+      width: 150px;
+      border: 1px solid #444;
+    }
 
-        .fixed-buttons button {
-            padding: 10px 15px;
-            font-size: 1rem;
-            background-color: #000; /* Color negro */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 0 5px; /* Espacio entre botones */
-            transition: background-color 0.3s;
-            width: auto;
-        }
+    #buttons .dropdown-content a {
+      padding: 10px;
+      color: #fff;
+      text-decoration: none;
+      display: block;
+    }
 
-        .fixed-buttons button:hover {
-            background-color: #39CCCC; /* Cambio a azul esmeralda al pasar el mouse */
-        }
+    #buttons .dropdown:hover .dropdown-content {
+      display: block;
+    }
 
-        .separator {
-            width: 1px; /* Separador gris */
-            background-color: #666;
-            height: 30px;
-            margin: 0 10px;
-        }
+    section {
+      padding-top: 70px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        /* Estilo para la sección de derechos reservados */
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.8rem;
-            color: #ffffff;
-        }
+    .image-container {
+      position: relative;
+      width: 100%;
+    }
 
-        /* Estilo para la sección de videos */
-        .video-container {
-            margin: 20px 0;
-        }
+    .image-container img {
+      width: 100%;
+      height: auto;
+    }
 
-        /* Estilos para el menú emergente */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
+    .image-container h3 {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-family: 'Dealerplate', sans-serif;
+      font-size: 2rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 5px 10px;
+      color: #fff;
+    }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #000;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
+    .videos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
+    .videos iframe {
+      width: 100%;
+      max-width: 500px;
+      margin: 10px;
+    }
 
-        .dropdown-content a:hover {
-            background-color: #39CCCC;
-        }
+    .contact-section {
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #111;
+      width: 100%;
+      text-align: center;
+    }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+    .contact-section h3 {
+      margin-bottom: 20px;
+    }
 
-        /* Diseño adaptable para móviles */
-        @media screen and (max-width: 768px) {
-            .title {
-                font-size: 2rem;
-            }
-            .subtitle {
-                font-size: 1rem;
-                margin-left: 10px;
-            }
-            .date {
-                font-size: 0.8rem;
-            }
-            .fixed-buttons button {
-                font-size: 0.8rem;
-                padding: 8px;
-            }
-        }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #222;
+      color: #fff;
+      border: 1px solid #444;
+    }
 
-    </style>
+    .contact-form button {
+      padding: 10px 20px;
+      background-color: #0a9c79;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #000;
+      padding: 10px;
+      text-align: center;
+      color: #777;
+      font-size: 0.8rem;
+    }
+
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Jollyroger</h1>
+    <h2>Teatro y música en vivo</h2>
+  </header>
 
-    <!-- Encabezado fijo con el título, fecha y subtítulo -->
-    <div class="header">
-        <span class="title">Jollyroger</span>
-        <span class="date">14 de octubre, 2024</span>
-        <span class="subtitle">Teatro y música en vivo</span>
+  <div id="buttons">
+    <a href="#imagenes">Fotos</a>
+    <a href="#videos">Videos</a>
+    <a href="#pdf">Descargas</a>
+    <div class="dropdown">
+      <a href="#contact">Contacto</a>
+      <div class="dropdown-content">
+        <a href="mailto:jollyrogerobra@gmail.com?cc=trigo.marco@gmail.com">Enviar un mail</a>
+        <a href="https://wa.me/56951131525">Chatea por WSP</a>
+      </div>
     </div>
-    
-    <div class="content">
-        <!-- Sección de imágenes -->
-        <div class="image-container">
-            <img src="https://www.dropbox.com/scl/fi/4adkdi3v0okq7pn53scb2/DSC05003.jpg?rlkey=u7ar5twe0ev5uxv3hwx6xjmsp&st=edt2nxio&dl=0" alt="Imagen 1">
-            <div class="image-description">Descripción de la imagen 1.</div>
-        </div>
-        <div class="image-container">
-            <img src="https://via.placeholder.com/800x400?text=Imagen+2" alt="Imagen 2">
-            <div class="image-description">Descripción de la imagen 2.</div>
-        </div>
-        <div class="image-container">
-            <img src="https://via.placeholder.com/800x400?text=Imagen+3" alt="Imagen 3">
-            <div class="image-description">Descripción de la imagen 3.</div>
-        </div>
-        <div class="image-container">
-            <img src="https://via.placeholder.com/800x400?text=Imagen+4" alt="Imagen 4">
-            <div class="image-description">Descripción de la imagen 4.</div>
-        </div>
-        <div class="image-container">
-            <img src="https://via.placeholder.com/800x400?text=Imagen+5" alt="Imagen 5">
-            <div class="image-description">Descripción de la imagen 5.</div>
-        </div>
-        <div class="image-container">
-            <img src="https://via.placeholder.com/800x400?text=Imagen+6" alt="Imagen 6">
-            <div class="image-description">Descripción de la imagen 6.</div>
-        </div>
-        <div class="image-container">
-            <img src="https://via.placeholder.com/800x400?text=Imagen+7" alt="Imagen 7">
-            <div class="image-description">Descripción de la imagen 7.</div>
-        </div>
-        <div class="image-container">
-            <img src="https://via.placeholder.com/800x400?text=Imagen+8" alt="Imagen 8">
-            <div class="image-description">Descripción de la imagen 8.</div>
-        </div>
+  </div>
 
-        <!-- Sección de videos -->
-        <div class="video-container">
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/aXuw6TrdSWM" title="Video 1" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video-container">
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/hh1C-HQAxfM" title="Video 2" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video-container">
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/KujmfG3XqVc" title="Video 3" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video-container">
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/prWlZm50oXw" title="Video 4" frameborder="0" allowfullscreen></iframe>
-        </div>
+  <section id="imagenes">
+    <div class="image-container">
+      <img src="https://www.dropbox.com/scl/fi/4adkdi3v0okq7pn53scb2/DSC05003.jpg?rlkey=u7ar5twe0ev5uxv3hwx6xjmsp&st=pt01j4fx&dl=0" alt="Imagen 1">
+      <h3>Jollyroger obra</h3>
     </div>
-
-    <!-- Botones fijos para Donaciones, Comprar Entradas, Chat, Instagram, YouTube, Contacto y Descargas -->
-    <div class="fixed-buttons">
-        <button onclick="constructionPage()">Donar</button>
-        <div class="separator"></div>
-        <button onclick="constructionPage()">Comprar Entradas</button>
-        <div class="separator"></div>
-        <button onclick="openWhatsApp()">Chat</button>
-        <div class="separator"></div>
-        <button onclick="openInstagram()">Instagram</button>
-        <div class="separator"></div>
-        <button onclick="openYouTube()">YouTube</button>
-        <div class="separator"></div>
-        <div class="dropdown">
-            <button>Contacto</button>
-            <div class="dropdown-content">
-                <a href="mailto:jollyrogerobra@gmail.com?cc=trigo.marco@gmail.com&subject=Contacto">Enviar Mail</a>
-                <a href="#" onclick="openWhatsApp()">WhatsApp</a>
-            </div>
-        </div>
-        <div class="separator"></div>
-        <button onclick="download()">Descargas</button>
+    <div class="image-container">
+      <img src="https://www.dropbox.com/scl/fi/i88pyl8sprytf59so2wo5/DSC05121.jpg?rlkey=9y8g3luqtapdw5ij633uina8c&st=qf8h4kyp&dl=0" alt="Imagen 2">
+      <h3>Jollyroger obra</h3>
     </div>
-
-    <!-- Pie de página con derechos reservados -->
-    <div class="footer">
-        <p>© Todos los derechos reservados a Jollyroger</p>
+    <div class="image-container">
+      <img src="https://www.dropbox.com/scl/fi/n6vyz60asjv4t2v8ibho3/DSC05286.jpg?rlkey=cp3m8snek2d0gy1kq46fwayju&st=4bw6ywur&dl=0" alt="Imagen 3">
+      <h3>Jollyroger obra</h3>
     </div>
+    <div class="image-container">
+      <img src="https://www.dropbox.com/scl/fi/tqkrq1zz96t7j89xn09fr/DSC05144.jpg?rlkey=1ridn7s4a1j8w8rfhk11fjpcl&st=idf138vo&dl=0" alt="Imagen 4">
+      <h3>Jollyroger obra</h3>
+    </div>
+    <div class="image-container">
+      <img src="https://www.dropbox.com/scl/fi/u6cs9p7c6t66s2a04wj90/DSC08334.jpg" alt="Imagen 5">
+      <h3>Jollyroger obra</h3>
+    </div>
+  </section>
 
-    <script>
-        function constructionPage() {
-            alert('Esta página está en construcción.');
-        }
+  <section id="videos" class="videos">
+    <iframe src="https://www.youtube.com/embed/aXuw6TrdSWM" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/hh1C-HQAxfM?si=fQXw35FN2cGYqD30" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/KujmfG3XqVc?si=8MOOTwdyLWGgYad9" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/prWlZm50oXw?si=sqXNchZaghaxEFkk" frameborder="0" allowfullscreen></iframe>
+  </section>
 
-        function openWhatsApp() {
-            window.open('https://wa.me/123456789', '_blank');
-        }
+  <section id="pdf" class="contact-section">
+    <h3>Descargar PDF</h3>
+    <a href="https://drive.google.com/file/d/1ubnoopeOWryZlKa_6GxZClkdkhhLuInz/view?usp=drive_link" target="_blank">Ver o descargar el PDF</a>
+  </section>
 
-        function openInstagram() {
-            window.open('https://www.instagram.com/jollyrogerobra', '_blank');
-        }
+  <section id="contact" class="contact-section">
+    <h3>Contacto</h3>
+    <form class="contact-form" action="mailto:jollyrogerobra@gmail.com?cc=trigo.marco@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu correo" required>
+      <textarea name="message" placeholder="Tu mensaje" required></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </section>
 
-        function openYouTube() {
-            window.open('https://www.youtube.com/@jollyroger541/videos', '_blank');
-        }
-
-        function download() {
-            alert('Descargas en construcción.');
-        }
-    </script>
-
+  <footer>
+    Todos los derechos reservados a Jollyroger.
+  </footer>
 </body>
 </html>
