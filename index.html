@@ -1,122 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jollyroger - Teatro y Música en Vivo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            background-color: black;
+            font-family: 'Ubuntu', sans-serif;
+            background-color: #000; /* Fondo negro */
             color: white;
-            font-family: 'Ubuntu Light', sans-serif;
-            overflow-x: hidden;
         }
 
-        h1 {
+        /* Encabezado */
+        header {
             position: fixed;
-            top: 10px;
-            right: 10px;
-            font-size: 3em;
-            color: #00bcd4; /* Celeste */
-        }
-
-        h2 {
-            position: fixed;
-            top: 10px;
-            right: 250px; /* Coloca el subtítulo a la derecha del título */
-            font-size: 1.5em;
-            color: #ffffff; /* Blanco */
-            font-family: 'Ubuntu Light', sans-serif;
-        }
-
-        .content {
-            margin-top: 120px; /* Desplaza el contenido para no tapar el título */
-        }
-
-        img {
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
+            height: 60px;
+            background-color: #000; /* Fondo negro */
+            color: #00bfff; /* Título en color celeste */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1000;
         }
 
-        .buttons {
-            position: fixed;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
-            font-size: 1.2em;
+        header h1 {
+            margin: 0;
+            font-size: 24px;
         }
 
-        .buttons a {
-            text-decoration: none;
-            color: white;
-            background-color: black;
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+        header h2 {
+            margin: 0;
+            font-size: 16px;
+            color: white; /* Subtítulo blanco */
+            font-family: 'Ubuntu Light', sans-serif;
         }
 
-        .buttons a:hover {
-            background-color: #00bcd4; /* Celeste */
-        }
-
-        .footer {
+        /* Botones */
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #000;
+            padding: 10px 0;
             position: fixed;
             bottom: 0;
             width: 100%;
-            text-align: center;
-            color: grey;
-            font-size: 0.8em;
-            padding-bottom: 5px;
+            z-index: 1000;
         }
 
-        .dropdown-content {
+        .menu a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #000;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .menu a:hover {
+            background-color: #00bfff; /* Celeste cuando el puntero pasa */
+            color: #000; /* Letra negra al hacer hover */
+        }
+
+        /* Botón de contacto desplegable */
+        .contact-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-dropdown-content {
             display: none;
             position: absolute;
-            background-color: #333;
+            background-color: #000;
             min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
         }
 
-        .dropdown:hover .dropdown-content {
+        .contact-dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
             display: block;
+        }
+
+        .contact-dropdown-content a:hover {
+            background-color: #00bfff; /* Celeste al hacer hover */
+        }
+
+        .contact-dropdown:hover .contact-dropdown-content {
+            display: block;
+        }
+
+        /* Imágenes */
+        .gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0;
+        }
+
+        /* Adaptación para móviles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .menu {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu a {
+                padding: 15px 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Título y subtítulo -->
+<header>
     <h1>Jollyroger</h1>
     <h2>Teatro y Música en Vivo</h2>
+</header>
 
-    <!-- Contenido de la página -->
-    <div class="content">
-        <img src="https://www.dropbox.com/scl/fi/4adkdi3v0okq7pn53scb2/DSC05003.jpg?rlkey=u7ar5twe0ev5uxv3hwx6xjmsp&st=pt01j4fx&dl=0" alt="Imagen 1">
-        <img src="https://www.dropbox.com/scl/fi/i88pyl8sprytf59so2wo5/DSC05121.jpg?rlkey=9y8g3luqtapdw5ij633uina8c&st=qf8h4kyp&dl=0" alt="Imagen 2">
-        <img src="https://www.dropbox.com/scl/fi/n6vyz60asjv4t2v8ibho3/DSC05286.jpg?rlkey=cp3m8snek2d0gy1kq46fwayju&st=4bw6ywur&dl=0" alt="Imagen 3">
-        <img src="https://www.dropbox.com/scl/fi/tqkrq1zz96t7j89xn09fr/DSC05144.jpg?rlkey=1ridn7s4a1j8w8rfhk11fjpcl&st=idf138vo&dl=0" alt="Imagen 4">
-        <!-- Más imágenes -->
-    </div>
+<!-- Imágenes -->
+<div class="gallery">
+    <img src="https://www.dropbox.com/scl/fi/4adkdi3v0okq7pn53scb2/DSC05003.jpg?rlkey=u7ar5twe0ev5uxv3hwx6xjmsp&st=pt01j4fx&dl=0" alt="Jollyroger obra">
+    <img src="https://www.dropbox.com/scl/fi/i88pyl8sprytf59so2wo5/DSC05121.jpg?rlkey=9y8g3luqtapdw5ij633uina8c&st=qf8h4kyp&dl=0" alt="Jollyroger obra">
+    <img src="https://www.dropbox.com/scl/fi/n6vyz60asjv4t2v8ibho3/DSC05286.jpg?rlkey=cp3m8snek2d0gy1kq46fwayju&st=4bw6ywur&dl=0" alt="Jollyroger obra">
+    <img src="https://www.dropbox.com/scl/fi/tqkrq1zz96t7j89xn09fr/DSC05144.jpg?rlkey=1ridn7s4a1j8w8rfhk11fjpcl&st=idf138vo&dl=0" alt="Jollyroger obra">
+    <img src="https://www.dropbox.com/scl/fi/u6cs9p7c6t66s2a04wj90/DSC08334.jpg" alt="Jollyroger obra">
+</div>
 
-    <!-- Botones al fondo -->
-    <div class="buttons">
-        <a href="https://www.youtube.com/@jollyroger541/videos">YouTube</a>
-        <a href="https://drive.google.com/file/d/1ubnoopeOWryZlKa_6GxZClkdkhhLuInz/view?usp=drive_link">Descargas</a>
-        <div class="dropdown">
-            <a href="#">Contacto</a>
-            <div class="dropdown-content">
-                <a href="mailto:jollyrogerobra@gmail.com?cc=trigo.marco@gmail.com">Enviar un Mail</a>
-                <a href="https://wa.me/56951131525">Chat</a>
-            </div>
+<!-- Menú de botones -->
+<div class="menu">
+    <a href="https://www.youtube.com/@jollyroger541/videos" target="_blank">YouTube</a>
+    <a href="https://www.dropbox.com/s/your-link" download>Descargas</a>
+    <div class="contact-dropdown">
+        <a href="#">Contacto</a>
+        <div class="contact-dropdown-content">
+            <a href="mailto:jollyrogerobra@gmail.com?cc=trigo.marco@gmail.com">Envía un Mail</a>
+            <a href="https://wa.me/56951131525">Chat por WhatsApp</a>
         </div>
-        <a href="#">Donaciones</a>
     </div>
+    <a href="#">Donaciones</a>
+</div>
 
-    <!-- Footer -->
-    <div class="footer">
-        Todos los derechos reservados a Jollyroger
-    </div>
+<!-- Footer -->
+<footer style="text-align: center; padding: 20px; background-color: #000; color: white;">
+    <p>&copy; 2024 Todos los derechos reservados a Jollyroger</p>
+</footer>
 
 </body>
 </html>
