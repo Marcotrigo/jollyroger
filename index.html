@@ -12,15 +12,48 @@
       font-family: 'Ubuntu', sans-serif;
       background-color: #000;
       color: white;
+      display: flex;
+    }
+
+    .sidebar {
+      background-color: #000;
+      width: 200px;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .sidebar button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 15px;
+      width: 100%;
+      margin: 10px 0;
+      font-size: 1em;
+      text-align: left;
+      transition: background-color 0.3s ease;
+    }
+
+    .sidebar button:hover {
+      background-color: #00ced1;
+    }
+
+    .contact-dropdown {
+      display: none;
+      background-color: #444;
+      padding: 10px;
+    }
+
+    .contact:hover .contact-dropdown {
+      display: block;
     }
 
     .header {
-      background-color: #000;
-      text-align: center;
-      padding: 10px;
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
+      margin-left: 220px; /* Adjust for sidebar width */
+      padding: 20px;
     }
 
     .header h1 {
@@ -28,7 +61,6 @@
       color: #00ced1; /* Tono celeste */
       font-size: 3em;
       margin: 0;
-      text-align: center;
     }
 
     .header h2 {
@@ -37,56 +69,22 @@
       color: #ffffff;
       font-size: 1.2em;
       margin: 0;
-      display: inline-block;
-    }
-
-    .menu {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: #000;
-      text-align: center;
-      padding: 10px;
-    }
-
-    .menu button {
-      background-color: #333;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      margin: 5px;
-      font-size: 1em;
-      transition: background-color 0.3s ease;
-    }
-
-    .menu button:hover {
-      background-color: #00ced1;
     }
 
     .content {
-      margin-top: 80px; /* Space for the header */
+      margin-left: 220px;
       padding: 20px;
-    }
-
-    .contact-dropdown {
-      display: none;
-    }
-
-    .contact:hover .contact-dropdown {
-      display: block;
-      background-color: #333;
-      padding: 10px;
     }
 
     .image-gallery img {
       width: 100%;
       height: auto;
-      margin: 0;
+      margin: 10px 0;
       display: block;
     }
 
     .footer {
+      margin-left: 220px;
       background-color: #000;
       color: #fff;
       text-align: center;
@@ -105,21 +103,7 @@
 </head>
 <body>
 
-  <div class="header">
-    <h1>JollyRoger</h1>
-    <h2>Teatro y Música en Vivo</h2>
-  </div>
-
-  <div class="content">
-    <div class="image-gallery">
-      <img src="https://www.dropbox.com/scl/fi/4adkdi3v0okq7pn53scb2/DSC05003.jpg?rlkey=u7ar5twe0ev5uxv3hwx6xjmsp&st=pt01j4fx&dl=0" alt="Imagen 1">
-      <img src="https://www.dropbox.com/scl/fi/i88pyl8sprytf59so2wo5/DSC05121.jpg?rlkey=9y8g3luqtapdw5ij633uina8c&st=qf8h4kyp&dl=0" alt="Imagen 2">
-      <img src="https://www.dropbox.com/scl/fi/n6vyz60asjv4t2v8ibho3/DSC05286.jpg?rlkey=cp3m8snek2d0gy1kq46fwayju&st=4bw6ywur&dl=0" alt="Imagen 3">
-      <img src="https://www.dropbox.com/scl/fi/tqkrq1zz96t7j89xn09fr/DSC05144.jpg?rlkey=1ridn7s4a1j8w8rfhk11fjpcl&st=idf138vo&dl=0" alt="Imagen 4">
-    </div>
-  </div>
-
-  <div class="menu">
+  <div class="sidebar">
     <button onclick="window.location.href='https://www.youtube.com/@jollyroger541/videos'">YouTube</button>
     <button onclick="window.location.href='https://www.instagram.com/jollyrogerobra/'">Instagram</button>
     <div class="contact">
@@ -131,6 +115,21 @@
     </div>
     <button>Donaciones</button>
     <button>Descargas</button>
+  </div>
+
+  <div class="header">
+    <h1>JollyRoger</h1>
+    <h2>Teatro y Música en Vivo</h2>
+  </div>
+
+  <div class="content">
+    <div class="image-gallery">
+      <!-- Ejemplo de imágenes (Reemplázalas con tus enlaces correctos) -->
+      <img src="https://www.dropbox.com/scl/fi/4adkdi3v0okq7pn53scb2/DSC05003.jpg?rlkey=u7ar5twe0ev5uxv3hwx6xjmsp&st=pt01j4fx&dl=1" alt="Imagen 1">
+      <img src="https://www.dropbox.com/scl/fi/i88pyl8sprytf59so2wo5/DSC05121.jpg?rlkey=9y8g3luqtapdw5ij633uina8c&st=qf8h4kyp&dl=1" alt="Imagen 2">
+      <img src="https://www.dropbox.com/scl/fi/n6vyz60asjv4t2v8ibho3/DSC05286.jpg?rlkey=cp3m8snek2d0gy1kq46fwayju&st=4bw6ywur&dl=1" alt="Imagen 3">
+      <img src="https://www.dropbox.com/scl/fi/tqkrq1zz96t7j89xn09fr/DSC05144.jpg?rlkey=1ridn7s4a1j8w8rfhk11fjpcl&st=idf138vo&dl=1" alt="Imagen 4">
+    </div>
   </div>
 
   <div class="footer">
