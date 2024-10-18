@@ -1,140 +1,187 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JollyRoger</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap">
+  <title>Jollyroger - Teatro y Música en Vivo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Ubuntu', sans-serif;
-      background-color: #000;
+      background-color: #000000;
       color: white;
-      display: flex;
     }
 
-    .sidebar {
-      background-color: #000;
-      width: 200px;
-      padding: 20px;
+    /* Title and Subtitle */
+    .header {
       position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #000000;
+      text-align: center;
+      z-index: 1000;
+      padding: 10px 0;
+    }
+
+    .header h1 {
+      font-size: 40px;
+      color: #00CED1; /* Light Sea Green */
+      margin: 0;
+      font-family: 'Dealerplate', sans-serif;
+    }
+
+    .header h2 {
+      font-size: 18px;
+      color: white;
+      font-weight: 300;
+    }
+
+    /* Sidebar for buttons */
+    .sidebar {
+      position: fixed;
       bottom: 0;
       left: 0;
+      width: 100%;
+      background-color: #333;
+      text-align: center;
+      z-index: 1000;
+      padding: 5px 0;
     }
 
     .sidebar button {
       background-color: #333;
-      color: white;
       border: none;
-      padding: 15px;
-      width: 100%;
-      margin: 10px 0;
-      font-size: 1em;
-      text-align: left;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 5px;
+      cursor: pointer;
       transition: background-color 0.3s ease;
     }
 
     .sidebar button:hover {
-      background-color: #00ced1;
+      background-color: #00CED1; /* Light Sea Green */
     }
 
-    .contact-dropdown {
-      display: none;
-      background-color: #444;
-      padding: 10px;
-    }
-
-    .contact:hover .contact-dropdown {
-      display: block;
-    }
-
-    .header {
-      margin-left: 220px; /* Adjust for sidebar width */
-      padding: 20px;
-    }
-
-    .header h1 {
-      font-family: 'Dealerplate', sans-serif;
-      color: #00ced1; /* Tono celeste */
-      font-size: 3em;
-      margin: 0;
-    }
-
-    .header h2 {
-      font-family: 'Ubuntu', sans-serif;
-      font-weight: normal;
-      color: #ffffff;
-      font-size: 1.2em;
-      margin: 0;
-    }
-
+    /* Main Content */
     .content {
-      margin-left: 220px;
+      margin-top: 120px;
       padding: 20px;
     }
 
-    .image-gallery img {
+    .image-container img {
       width: 100%;
       height: auto;
-      margin: 10px 0;
       display: block;
+      margin-bottom: 0;
+      border: none;
     }
 
-    .footer {
-      margin-left: 220px;
-      background-color: #000;
-      color: #fff;
+    /* Footer contact section */
+    .contact-section {
+      padding: 50px;
       text-align: center;
+      background-color: #333;
+    }
+
+    .contact-section h2 {
+      color: white;
+    }
+
+    .contact-section form input, .contact-section form textarea {
+      width: 80%;
       padding: 10px;
+      margin: 10px 0;
+      background-color: #444;
+      border: 1px solid #555;
+      color: white;
     }
 
-    .footer a {
-      color: #fff;
-      text-decoration: none;
+    .contact-section form button {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
     }
 
-    .footer a:hover {
-      color: #00ced1;
+    .contact-section form button:hover {
+      background-color: #00CED1;
+    }
+
+    /* Media Queries for Mobile */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 30px;
+      }
+
+      .header h2 {
+        font-size: 14px;
+      }
+
+      .sidebar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .image-container img {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="sidebar">
-    <button onclick="window.location.href='https://www.youtube.com/@jollyroger541/videos'">YouTube</button>
-    <button onclick="window.location.href='https://www.instagram.com/jollyrogerobra/'">Instagram</button>
-    <div class="contact">
-      <button>Contacto</button>
-      <div class="contact-dropdown">
-        <button onclick="window.location.href='mailto:jollyrogerobra@gmail.com?cc=trigo.marco@gmail.com'">Enviar Mail</button>
-        <button onclick="window.location.href='https://wa.me/56951131525'">Chatea</button>
-      </div>
-    </div>
-    <button>Donaciones</button>
-    <button>Descargas</button>
-  </div>
-
+  <!-- Header section -->
   <div class="header">
-    <h1>JollyRoger</h1>
+    <h1>Jollyroger</h1>
     <h2>Teatro y Música en Vivo</h2>
   </div>
 
+  <!-- Sidebar with buttons -->
+  <div class="sidebar">
+    <button onclick="window.location.href='#instagram'">Instagram</button>
+    <button onclick="window.location.href='#youtube'">YouTube</button>
+    <button onclick="window.location.href='#donaciones'">Donaciones</button>
+    <button onclick="window.location.href='#contact'">Contacto</button>
+  </div>
+
+  <!-- Content section for images and videos -->
   <div class="content">
-    <div class="image-gallery">
-      <!-- Ejemplo de imágenes (Reemplázalas con tus enlaces correctos) -->
-      <img src="https://www.dropbox.com/scl/fi/4adkdi3v0okq7pn53scb2/DSC05003.jpg?rlkey=u7ar5twe0ev5uxv3hwx6xjmsp&st=pt01j4fx&dl=1" alt="Imagen 1">
-      <img src="https://www.dropbox.com/scl/fi/i88pyl8sprytf59so2wo5/DSC05121.jpg?rlkey=9y8g3luqtapdw5ij633uina8c&st=qf8h4kyp&dl=1" alt="Imagen 2">
-      <img src="https://www.dropbox.com/scl/fi/n6vyz60asjv4t2v8ibho3/DSC05286.jpg?rlkey=cp3m8snek2d0gy1kq46fwayju&st=4bw6ywur&dl=1" alt="Imagen 3">
-      <img src="https://www.dropbox.com/scl/fi/tqkrq1zz96t7j89xn09fr/DSC05144.jpg?rlkey=1ridn7s4a1j8w8rfhk11fjpcl&st=idf138vo&dl=1" alt="Imagen 4">
+    <div class="image-container">
+      <img src="https://www.dropbox.com/scl/fi/4adkdi3v0okq7pn53scb2/DSC05003.jpg?rlkey=u7ar5twe0ev5uxv3hwx6xjmsp&st=pt01j4fx&dl=0" alt="Jollyroger obra">
+      <img src="https://www.dropbox.com/scl/fi/i88pyl8sprytf59so2wo5/DSC05121.jpg?rlkey=9y8g3luqtapdw5ij633uina8c&st=qf8h4kyp&dl=0" alt="Jollyroger obra">
+      <img src="https://www.dropbox.com/scl/fi/n6vyz60asjv4t2v8ibho3/DSC05286.jpg?rlkey=cp3m8snek2d0gy1kq46fwayju&st=4bw6ywur&dl=0" alt="Jollyroger obra">
+      <!-- More images... -->
+    </div>
+
+    <div class="video-container">
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/aXuw6TrdSWM" frameborder="0" allowfullscreen></iframe>
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/hh1C-HQAxfM?si=fQXw35FN2cGYqD30" frameborder="0" allowfullscreen></iframe>
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/KujmfG3XqVc?si=8MOOTwdyLWGgYad9" frameborder="0" allowfullscreen></iframe>
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/prWlZm50oXw?si=sqXNchZaghaxEFkk" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 
-  <div class="footer">
-    <p>Todos los derechos reservados a JollyRoger</p>
+  <!-- Footer contact section -->
+  <div class="contact-section" id="contact">
+    <h2>Contacto</h2>
+    <form action="mailto:jollyrogerobra@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Tu Nombre">
+      <input type="email" name="email" placeholder="Tu Correo Electrónico">
+      <textarea name="message" placeholder="Tu Mensaje"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
   </div>
 
 </body>
 </html>
+
