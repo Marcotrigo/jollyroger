@@ -6,18 +6,30 @@
   <title>Jollyroger - Teatro y Música en Vivo</title>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
   <style>
-    body {
+    /* Reset margins and paddings */
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* General body styles */
+    body {
       font-family: 'Ubuntu', sans-serif;
       background-color: #000000;
       color: white;
       text-align: center;
+      overflow-x: hidden;
     }
 
-    /* Title and Subtitle */
+    /* Fixed header section */
     .header {
-      padding: 20px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 10px 0;
       background-color: #000000;
+      z-index: 100;
     }
 
     .header h1 {
@@ -32,49 +44,63 @@
       font-weight: 300;
     }
 
-    /* Sidebar for buttons */
+    /* Sidebar for buttons, covering entire height */
     .sidebar {
       position: fixed;
-      top: 20%;
+      top: 0;
       left: 0;
+      height: 100vh; /* Full viewport height */
       display: flex;
       flex-direction: column;
-      background-color: transparent;
-      padding: 10px;
+      background-color: #333;
+      width: 160px;
+      z-index: 90;
+      padding: 0;
+      justify-content: center;
     }
 
     .sidebar button {
       background-color: #333;
       border: none;
       color: white;
-      padding: 10px 20px;
+      padding: 15px;
       text-align: left;
-      text-decoration: none;
-      display: block;
       font-size: 16px;
-      margin: 5px 0;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      width: 150px;
+      width: 100%;
+      border-bottom: 1px solid #444; /* Divider between buttons */
     }
 
     .sidebar button:hover {
       background-color: #00CED1; /* Light Sea Green */
     }
 
-    /* Main Content */
+    /* Main content section */
     .content {
-      margin-top: 100px;
-      padding: 20px;
-      text-align: center;
+      margin-top: 100px; /* To avoid overlap with the fixed header */
+      padding-left: 180px; /* To avoid overlap with the sidebar */
+      padding-right: 20px;
+    }
+
+    .image-container {
+      margin-top: 20px;
     }
 
     .image-container img {
       width: 80%;
       height: auto;
-      display: block;
       margin: 20px auto;
+      display: block;
       border: none;
+    }
+
+    /* Video section */
+    .video-container iframe {
+      width: 80%;
+      height: 315px;
+      margin: 20px auto;
+      display: block;
     }
 
     /* Footer contact section */
@@ -82,6 +108,7 @@
       padding: 50px;
       text-align: center;
       background-color: #333;
+      margin-top: 50px;
     }
 
     .contact-section h2 {
@@ -122,16 +149,20 @@
     /* Media Queries for Mobile */
     @media (max-width: 768px) {
       .sidebar {
-        top: 10%;
-        left: 0;
-        width: 100px;
+        width: 120px;
+        padding: 0;
       }
 
       .sidebar button {
-        width: 120px;
+        font-size: 14px;
+        padding: 10px;
       }
 
-      .image-container img {
+      .content {
+        padding-left: 130px;
+      }
+
+      .image-container img, .video-container iframe {
         width: 100%;
       }
     }
@@ -139,16 +170,16 @@
 </head>
 <body>
 
-  <!-- Header section -->
+  <!-- Fixed Header section -->
   <div class="header">
     <h1>Jollyroger</h1>
     <h2>Teatro y Música en Vivo</h2>
   </div>
 
-  <!-- Sidebar with buttons -->
+  <!-- Sidebar for buttons -->
   <div class="sidebar">
-    <button onclick="window.location.href='#instagram'">Instagram</button>
-    <button onclick="window.location.href='#youtube'">YouTube</button>
+    <button onclick="window.location.href='https://www.instagram.com/jollyrogerobra/'">Instagram</button>
+    <button onclick="window.location.href='https://www.youtube.com/channel/UC12345EXAMPLE'">YouTube</button>
     <button onclick="window.location.href='#donaciones'">Donaciones</button>
     <button onclick="toggleContact()">Contacto</button>
   </div>
@@ -159,7 +190,7 @@
     <button onclick="window.location.href='mailto:jollyrogerobra@gmail.com'">Enviar Email</button>
   </div>
 
-  <!-- Content section for images and videos -->
+  <!-- Main Content -->
   <div class="content">
     <div class="image-container">
       <img src="https://via.placeholder.com/800x600" alt="Jollyroger obra 1">
@@ -168,10 +199,10 @@
     </div>
 
     <div class="video-container">
-      <iframe width="80%" height="315" src="https://www.youtube.com/embed/aXuw6TrdSWM" frameborder="0" allowfullscreen></iframe>
-      <iframe width="80%" height="315" src="https://www.youtube.com/embed/hh1C-HQAxfM" frameborder="0" allowfullscreen></iframe>
-      <iframe width="80%" height="315" src="https://www.youtube.com/embed/KujmfG3XqVc" frameborder="0" allowfullscreen></iframe>
-      <iframe width="80%" height="315" src="https://www.youtube.com/embed/prWlZm50oXw" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/aXuw6TrdSWM" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/hh1C-HQAxfM" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/KujmfG3XqVc" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/prWlZm50oXw" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 
