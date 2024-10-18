@@ -23,7 +23,7 @@
             background-color: #000; /* Fondo negro */
             color: #00bfff; /* Título en color celeste */
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             padding: 0 20px;
             z-index: 1000;
@@ -32,7 +32,6 @@
         header h1 {
             margin: 0;
             font-size: 24px;
-            text-align: right;
         }
 
         header h2 {
@@ -40,69 +39,84 @@
             font-size: 16px;
             color: white; /* Subtítulo blanco */
             font-family: 'Ubuntu Light', sans-serif;
-            text-align: right;
+            margin-left: 10px;
         }
 
-        /* Botones */
-        .menu {
-            display: flex;
-            justify-content: center;
-            background-color: #000;
-            padding: 10px 0;
+        /* Columna de botones a la izquierda */
+        .sidebar {
             position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .menu a {
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
+            top: 60px;
+            left: 0;
+            width: 200px;
             background-color: #000;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .sidebar a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
             transition: background-color 0.3s, color 0.3s;
+            background-color: #000;
         }
 
-        .menu a:hover {
-            background-color: #00bfff; /* Celeste cuando el puntero pasa */
-            color: #000; /* Letra negra al hacer hover */
+        .sidebar a:hover {
+            background-color: #00bfff;
+            color: #000;
         }
 
-        /* Botón de contacto desplegable */
-        .contact-dropdown {
+        /* Menú desplegable en Contacto */
+        .dropdown {
             position: relative;
-            display: inline-block;
         }
 
-        .contact-dropdown-content {
+        .dropdown-content {
             display: none;
             position: absolute;
+            left: 200px; /* Alineado junto al menú lateral */
             background-color: #000;
             min-width: 160px;
             z-index: 1;
+            flex-direction: column;
         }
 
-        .contact-dropdown-content a {
+        .dropdown-content a {
             color: white;
-            padding: 12px 16px;
+            padding: 10px;
             text-decoration: none;
             display: block;
         }
 
-        .contact-dropdown-content a:hover {
-            background-color: #00bfff; /* Celeste al hacer hover */
-        }
-
-        .contact-dropdown:hover .contact-dropdown-content {
+        .dropdown:hover .dropdown-content {
             display: block;
         }
 
-        /* Imágenes */
+        /* Galería de imágenes */
+        .gallery {
+            margin-left: 220px; /* Deja espacio para la columna izquierda */
+            padding: 20px;
+        }
+
         .gallery img {
             width: 100%;
             height: auto;
             display: block;
-            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        /* Vista de Instagram */
+        .instagram-section {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 600px;
         }
 
         /* Adaptación para móviles */
@@ -112,25 +126,45 @@
                 height: auto;
             }
             
-            .menu {
-                flex-direction: column;
-                align-items: center;
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
             }
 
-            .menu a {
-                padding: 15px 20px;
+            .gallery, .instagram-section {
+                margin-left: 0;
+            }
+
+            iframe {
+                height: 400px;
             }
         }
     </style>
 </head>
 <body>
 
+<!-- Encabezado -->
 <header>
     <h1>Jollyroger</h1>
     <h2>Teatro y Música en Vivo</h2>
 </header>
 
-<!-- Imágenes -->
+<!-- Columna de botones a la izquierda -->
+<div class="sidebar">
+    <a href="https://www.youtube.com/@jollyroger541/videos" target="_blank">YouTube</a>
+    <a href="https://drive.google.com/file/d/1ubnoopeOWryZlKa_6GxZClkdkhhLuInz/view?usp=drive_link" target="_blank">Descargas</a>
+    <div class="dropdown">
+        <a href="#">Contacto</a>
+        <div class="dropdown-content">
+            <a href="mailto:jollyrogerobra@gmail.com?cc=trigo.marco@gmail.com">Envía un Mail</a>
+            <a href="https://wa.me/56951131525">Chat por WhatsApp</a>
+        </div>
+    </div>
+    <a href="#">Donaciones</a>
+</div>
+
+<!-- Galería de imágenes -->
 <div class="gallery">
     <img src="https://www.dropbox.com/scl/fi/4adkdi3v0okq7pn53scb2/DSC05003.jpg?rlkey=u7ar5twe0ev5uxv3hwx6xjmsp&st=pt01j4fx&dl=0" alt="Jollyroger obra">
     <img src="https://www.dropbox.com/scl/fi/i88pyl8sprytf59so2wo5/DSC05121.jpg?rlkey=9y8g3luqtapdw5ij633uina8c&st=qf8h4kyp&dl=0" alt="Jollyroger obra">
@@ -139,18 +173,10 @@
     <img src="https://www.dropbox.com/scl/fi/u6cs9p7c6t66s2a04wj90/DSC08334.jpg" alt="Jollyroger obra">
 </div>
 
-<!-- Menú de botones -->
-<div class="menu">
-    <a href="https://www.youtube.com/@jollyroger541/videos" target="_blank">YouTube</a>
-    <a href="https://www.dropbox.com/s/your-link" download>Descargas</a>
-    <div class="contact-dropdown">
-        <a href="#">Contacto</a>
-        <div class="contact-dropdown-content">
-            <a href="mailto:jollyrogerobra@gmail.com?cc=trigo.marco@gmail.com">Envía un Mail</a>
-            <a href="https://wa.me/56951131525">Chat por WhatsApp</a>
-        </div>
-    </div>
-    <a href="#">Donaciones</a>
+<!-- Sección de historias de Instagram -->
+<div class="instagram-section">
+    <h3>Historias de Instagram</h3>
+    <iframe src="https://snapwidget.com/embed/1020202" frameborder="0" scrolling="no"></iframe>
 </div>
 
 <!-- Footer -->
