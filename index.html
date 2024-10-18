@@ -11,24 +11,18 @@
       font-family: 'Ubuntu', sans-serif;
       background-color: #000000;
       color: white;
+      text-align: center;
     }
 
     /* Title and Subtitle */
     .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+      padding: 20px 0;
       background-color: #000000;
-      text-align: center;
-      z-index: 1000;
-      padding: 10px 0;
     }
 
     .header h1 {
       font-size: 40px;
       color: #00CED1; /* Light Sea Green */
-      margin: 0;
       font-family: 'Dealerplate', sans-serif;
     }
 
@@ -41,13 +35,12 @@
     /* Sidebar for buttons */
     .sidebar {
       position: fixed;
-      bottom: 0;
+      top: 20%;
       left: 0;
-      width: 100%;
-      background-color: #333;
-      text-align: center;
-      z-index: 1000;
-      padding: 5px 0;
+      display: flex;
+      flex-direction: column;
+      background-color: transparent;
+      padding: 10px;
     }
 
     .sidebar button {
@@ -55,13 +48,14 @@
       border: none;
       color: white;
       padding: 10px 20px;
-      text-align: center;
+      text-align: left;
       text-decoration: none;
-      display: inline-block;
+      display: block;
       font-size: 16px;
-      margin: 5px;
+      margin: 5px 0;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      width: 150px;
     }
 
     .sidebar button:hover {
@@ -70,15 +64,16 @@
 
     /* Main Content */
     .content {
-      margin-top: 120px;
+      margin-top: 100px;
       padding: 20px;
+      text-align: center;
     }
 
     .image-container img {
-      width: 100%;
+      width: 80%;
       height: auto;
       display: block;
-      margin-bottom: 0;
+      margin: 20px auto;
       border: none;
     }
 
@@ -114,22 +109,26 @@
       background-color: #00CED1;
     }
 
+    /* Toggle visibility for contact options */
+    #contact-options {
+      display: none;
+      flex-direction: column;
+    }
+
+    .contact-visible #contact-options {
+      display: flex;
+    }
+
     /* Media Queries for Mobile */
     @media (max-width: 768px) {
-      .header h1 {
-        font-size: 30px;
-      }
-
-      .header h2 {
-        font-size: 14px;
-      }
-
       .sidebar {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
+        top: 10%;
+        left: 0;
+        width: 100px;
+      }
+
+      .sidebar button {
+        width: 120px;
       }
 
       .image-container img {
@@ -151,23 +150,28 @@
     <button onclick="window.location.href='#instagram'">Instagram</button>
     <button onclick="window.location.href='#youtube'">YouTube</button>
     <button onclick="window.location.href='#donaciones'">Donaciones</button>
-    <button onclick="window.location.href='#contact'">Contacto</button>
+    <button onclick="toggleContact()">Contacto</button>
+  </div>
+
+  <!-- Contact options (WhatsApp and Email) -->
+  <div id="contact-options" class="contact-section">
+    <button onclick="window.location.href='https://wa.me/56912345678'">Chat de WhatsApp</button>
+    <button onclick="window.location.href='mailto:jollyrogerobra@gmail.com'">Enviar Email</button>
   </div>
 
   <!-- Content section for images and videos -->
   <div class="content">
     <div class="image-container">
-      <img src="https://www.dropbox.com/scl/fi/4adkdi3v0okq7pn53scb2/DSC05003.jpg?rlkey=u7ar5twe0ev5uxv3hwx6xjmsp&st=pt01j4fx&dl=0" alt="Jollyroger obra">
-      <img src="https://www.dropbox.com/scl/fi/i88pyl8sprytf59so2wo5/DSC05121.jpg?rlkey=9y8g3luqtapdw5ij633uina8c&st=qf8h4kyp&dl=0" alt="Jollyroger obra">
-      <img src="https://www.dropbox.com/scl/fi/n6vyz60asjv4t2v8ibho3/DSC05286.jpg?rlkey=cp3m8snek2d0gy1kq46fwayju&st=4bw6ywur&dl=0" alt="Jollyroger obra">
-      <!-- More images... -->
+      <img src="https://via.placeholder.com/800x600" alt="Jollyroger obra 1">
+      <img src="https://via.placeholder.com/800x600" alt="Jollyroger obra 2">
+      <img src="https://via.placeholder.com/800x600" alt="Jollyroger obra 3">
     </div>
 
     <div class="video-container">
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/aXuw6TrdSWM" frameborder="0" allowfullscreen></iframe>
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/hh1C-HQAxfM?si=fQXw35FN2cGYqD30" frameborder="0" allowfullscreen></iframe>
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/KujmfG3XqVc?si=8MOOTwdyLWGgYad9" frameborder="0" allowfullscreen></iframe>
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/prWlZm50oXw?si=sqXNchZaghaxEFkk" frameborder="0" allowfullscreen></iframe>
+      <iframe width="80%" height="315" src="https://www.youtube.com/embed/aXuw6TrdSWM" frameborder="0" allowfullscreen></iframe>
+      <iframe width="80%" height="315" src="https://www.youtube.com/embed/hh1C-HQAxfM" frameborder="0" allowfullscreen></iframe>
+      <iframe width="80%" height="315" src="https://www.youtube.com/embed/KujmfG3XqVc" frameborder="0" allowfullscreen></iframe>
+      <iframe width="80%" height="315" src="https://www.youtube.com/embed/prWlZm50oXw" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 
@@ -182,6 +186,13 @@
     </form>
   </div>
 
+  <script>
+    // Function to toggle visibility of contact options
+    function toggleContact() {
+      const contactSection = document.getElementById('contact-options');
+      contactSection.classList.toggle('contact-visible');
+    }
+  </script>
+  
 </body>
 </html>
-
